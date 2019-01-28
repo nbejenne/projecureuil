@@ -10,10 +10,57 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_28_162528) do
+ActiveRecord::Schema.define(version: 2019_01_28_170146) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "albums", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "invitations", force: :cascade do |t|
+    t.string "email"
+    t.datetime "accepted_at"
+    t.bigint "album_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["album_id"], name: "index_invitations_on_album_id"
+    t.index ["user_id"], name: "index_invitations_on_user_id"
+  end
+
+  create_table "memberships", force: :cascade do |t|
+    t.boolean "admin"
+    t.bigint "user_id"
+    t.bigint "album_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["album_id"], name: "index_memberships_on_album_id"
+    t.index ["user_id"], name: "index_memberships_on_user_id"
+  end
+
+  create_table "pictures", force: :cascade do |t|
+    t.text "picture_url"
+    t.bigint "album_id"
+    t.bigint "membership_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["album_id"], name: "index_pictures_on_album_id"
+    t.index ["membership_id"], name: "index_pictures_on_membership_id"
+  end
+
+  create_table "reactions", force: :cascade do |t|
+    t.text "icon"
+    t.bigint "picture_id"
+    t.bigint "membership_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["membership_id"], name: "index_reactions_on_membership_id"
+    t.index ["picture_id"], name: "index_reactions_on_picture_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +70,19 @@ ActiveRecord::Schema.define(version: 2019_01_28_162528) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "firstname"
+    t.string "lastname"
+    t.string "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "invitations", "albums"
+  add_foreign_key "invitations", "users"
+  add_foreign_key "memberships", "albums"
+  add_foreign_key "memberships", "users"
+  add_foreign_key "pictures", "albums"
+  add_foreign_key "pictures", "memberships"
+  add_foreign_key "reactions", "memberships"
+  add_foreign_key "reactions", "pictures"
 end
