@@ -5,8 +5,6 @@ class AlbumsController < ApplicationController
 
   def show
     @album = Album.find(params[:id])
-
-    # set_admin
   end
 
   def new
@@ -20,7 +18,7 @@ class AlbumsController < ApplicationController
     if @album.save
       @membership = Membership.new(user_id: @current_user.id, album_id: @album.id)
       @membership.save
-      redirect_to album_path(@album)
+      redirect_to new_album_invitation_path(@album)
     else
       render 'albums/new'
     end
