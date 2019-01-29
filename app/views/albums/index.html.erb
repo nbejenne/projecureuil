@@ -1,5 +1,8 @@
 <h1>Albums#index</h1>
 <% @albums.each do |album| %>
-  <%=link_to "#{album.name.capitalize}", album_path(album)  %>
+  <%=link_to "#{album.name}", album_path(album)  %>
 <% end %>
+
+<%= link_to "Créer un album", new_album_path %>
+
 <p>Find me in app/views/albums/index.html.erb</p>
