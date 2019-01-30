@@ -18,8 +18,10 @@ gem 'uglifier'
 gem 'webpacker'
 
 gem 'cloudinary'
-gem 'carrierwave'
+gem 'carrierwave', '~> 1.2'
+
 gem 'figaro'
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'
