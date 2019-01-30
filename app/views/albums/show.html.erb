@@ -1,2 +1,6 @@
 It's a good show
 <%= @album.memberships.first %>
+
+<% @pictures.each do |picture| %>
+<%= picture.picture_url %>
+<% end %>
