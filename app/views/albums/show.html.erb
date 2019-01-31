@@ -1,7 +1,5 @@
+<% @album.pictures.each do |picture| %>
+  <%= cl_image_tag picture.photo, height: 300, width: 400, crop: :fill %>
+<% end %>
 
-<%= cl_image_tag("yjw0xawpgcsyqk0mgjyq",
-      width: 400, height: 300, crop: :fill) %>
-<%= cl_image_tag("zpnieoqxmrlj1k7vsqmr",
-      width: 400, height: 300, crop: :fill) %>
-
-<%= link_to 'Ajouter des photos', new_album_picture_path(@album)  %>
+<%= link_to 'Ajouter des photos', new_album_picture_path(@album)    %>

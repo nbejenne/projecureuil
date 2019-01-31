@@ -1,5 +1,8 @@
 Ajouter des photos
-<%= simple_form_for(@album, @picture) do |f| %>
+<%= simple_form_for  [@album, @picture] do |f| %>
   <%= f.input :photo %>
   <%= f.input :photo_cache, as: :hidden %>
+  <%= f.submit "add picture", class: "btn btn-primary" %>
 <% end %>
+
+

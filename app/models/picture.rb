@@ -4,4 +4,5 @@ class Picture < ApplicationRecord
   has_many :reactions
 
   mount_uploader :photo, PhotoUploader
+
 end
