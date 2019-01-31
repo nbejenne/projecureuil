@@ -5,7 +5,9 @@
     <div class="album-container"> <%=link_to "#{album.name}", album_path(album)  %></div>
   <% end %>
 </div>
-
-<%= link_to 'Créer un album', new_album_path %>
-
+<div class="text-center">
+  <div class="btn btn-danger">
+    <%= link_to 'Créer un album', new_album_path %>
+  </div>
+</div>
 <p>Find me in app/views/albums/index.html.erb</p>
