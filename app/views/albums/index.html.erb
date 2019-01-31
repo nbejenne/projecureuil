@@ -1,7 +1,10 @@
-<h1>Albums#index</h1>
-<% @albums.each do |album| %>
-  <%=link_to "#{album.name}", album_path(album)  %>
-<% end %>
+
+<div class="container">
+  <h1>Albums</h1>
+  <% @albums.each do |album| %>
+    <div class="album-container"> <%=link_to "#{album.name}", album_path(album)  %></div>
+  <% end %>
+</div>
 
 <%= link_to 'Créer un album', new_album_path %>
 
