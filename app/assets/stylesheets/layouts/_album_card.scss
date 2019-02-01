@@ -1,5 +1,12 @@
-.album-container {
+.albums-container {
+}
+
+.album-card-container {
   padding: 10px;
   margin: 5px;
   border: 1px solid black;
+  display: inline-flex;
+  width: 40vh;
+  height: 20vh;
+
 }

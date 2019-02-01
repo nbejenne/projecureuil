@@ -1,10 +1,17 @@
 
-<div class="container">
+<div class="container container-border">
   <h1>Albums</h1>
-  <% @albums.each do |album| %>
-    <div class="album-container"> <%=link_to "#{album.name}", album_path(album)  %></div>
-  <% end %>
+    <div class="row albums-container">
+      <% @albums.each do |album| %>
+        <div class="col-xs-12 col-md-6 text-center">
+          <div class="album-card-container">
+            <%=link_to "#{album.name}", album_path(album)%>
+          </div>
+        </div>
+      <%end%>
+  </div>
 </div>
+
 <div class="text-center">
   <div class="btn btn-danger">
     <%= link_to 'Créer un album', new_album_path %>
