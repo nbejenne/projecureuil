@@ -2,5 +2,6 @@ Invitation
 
 <%= simple_form_for [@album, @invitation] do |f| %>
   <%= f.input :email, label: "Email" %>
+  <%= f.hidden_field :album_id, value: @invitation.album_id%>
   <%= f.button :submit %>
 <% end %>

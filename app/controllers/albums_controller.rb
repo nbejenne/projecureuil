@@ -1,6 +1,6 @@
 class AlbumsController < ApplicationController
   def index
-    @albums = Album.all
+    @albums = current_user.albums
   end
 
   def show

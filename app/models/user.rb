@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_many :memberships, dependent: :destroy
   has_many :albums, through: :memberships
-  has_many :invitations
   has_many :reactions, through: :memberships
+
+  has_many :invitations, :class_name => "Invitation", :foreign_key => 'recipient_id'
+  has_many :sent_invitations, :class_name => "Invitation", :foreign_key => 'sender_id'
 end
