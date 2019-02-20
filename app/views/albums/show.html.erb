@@ -1,7 +1,35 @@
-<%= link_to "#{@album.memberships.size}", album_invitations_path(@album) %>
+<div class="container">
+  <div class="text-center">
+    <div class="top-icons">
+      <div class="invitation-icon">
+        <%= link_to "<i class='fas fa-user-plus'></i>".html_safe, new_album_invitation_path(@album)%>
+      </div>
+    <div class="album-name">
+      <%= @album.name %>:
+    </div>
+      <div class="invitation-icon">
+        <%= link_to "<i class='fas fa-user-plus'></i>".html_safe, new_album_invitation_path(@album)%>
+      </div>
+    </div>
+  </div>
 
-<% @album.pictures.each do |picture| %>
-  <%= cl_image_tag picture.photo, height: 300, width: 400, crop: :fill %>
-<% end %>
 
-<%= link_to 'Ajouter des photos', new_album_picture_path(@album)    %>
+  <div class="row">
+    <% @album.pictures.each do |picture| %>
+      <div class="col-xs-6 col-lg-4">
+        <div class="picture-card">
+          <% if picture.picture_url.present? %>
+            <%= cl_image_tag picture.picture_url, height: 170, width: 170, class: "rounded-img" %>
+          <% else %>
+            <%= cl_image_tag picture.photo, height: 170, width: 170, class: "rounded-img" %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="text-center">
+    <div class="btn btn-primary">
+      <%= link_to 'Ajouter des photos', new_album_picture_path(@album)%>
+    </div>
+  </div>
+</div>

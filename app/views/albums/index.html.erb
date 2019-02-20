@@ -3,8 +3,8 @@
   <h1>Albums</h1>
     <div class="row albums-container">
       <% @albums.each do |album| %>
-        <div class="col-xs-12 col-md-6 text-center">
-          <div class="album-card-container">
+        <div class="col-xs-12 col-lg-4 text-center">
+          <div class="album-card-container" style="background-image: url('http://www.promenades-en-mer.org/photo/produit/7/excursions_ajaccio___porticcio_coucher_de_soleil_aux_iles_sanguinaires_decouvertes_naturelles_balades_en_mer_6320160729100558.jpg')">
             <%=link_to "#{album.name}", album_path(album)%>
           </div>
         </div>
@@ -12,9 +12,9 @@
   </div>
 </div>
 
+
 <div class="text-center">
-  <div class="btn btn-danger">
+  <div class="btn btn-primary">
     <%= link_to 'Créer un album', new_album_path %>
   </div>
 </div>
-<p>Find me in app/views/albums/index.html.erb</p>

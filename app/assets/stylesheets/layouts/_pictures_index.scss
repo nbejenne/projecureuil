@@ -1,0 +1,30 @@
+.album-name {
+    width: 65%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 25px;
+    text-decoration: underline;
+}
+
+.picture-card {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.rounded-img {
+  border-radius: 5px;
+}
+
+.center-btn {
+  margin: 0 auto;
+}
+
+.top-icons {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.invitation-icon {
+  font-size: 30px;
+}
