@@ -12,13 +12,16 @@ class InvitationsController < ApplicationController
   end
 
   def create
+    @album = Album.find(params[:album_id])
     @invitation = Invitation.new(invitation_params)
-    @invitation.album = Album.find(params[:album_id])
-    @invitation.user = current_user
-    @invitation.accepted_at = "Pending"
-    @invitation.save!
+    @invitation.album = @album
+    @invitation.sender_id = current_user.id
 
-    redirect_to album_path(Album.find(params[:album_id]))
+    if @invitation.save!
+      InvitationMailer.invitation(@invitation, new_user_registration_url(:invitation_token => @invitation.token)).deliver
+    else
+      render 'invitations/new'
+    end
   end
 
 private

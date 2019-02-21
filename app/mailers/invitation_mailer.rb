@@ -5,10 +5,11 @@ class InvitationMailer < ApplicationMailer
   #
   #   en.invitation_mailer.inscription.subject
   #
-  def invitation(invitation_email)
+  def invitation(invitation_email, url)
     @invitation_email = invitation_email
     @greeting = "Hi"
+    @url = url
 
-    mail to: @invitation_email, subject: "invitation"
+    mail to: @invitation_email.email, subject: "invitation"
   end
 end
