@@ -11,23 +11,22 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    super
-    @new_user = build_resource(sign_up_params)
+    @new_user = User.new(user_params)
     @new_user.save!
-    @token = params[:invite_token]
+    @token = params[:user][:invitation_token]
+
     if @token != nil
-     org =  Invitation.find_by_token(@token).album #find the user group attached to the invite
-     @new_user.albums.push(org) #add this user to the new user group as a member
-  else
-    # do normal registration things #
-  end
+      binding.pry
+      org =  Invitation.find_by_token(@token).album #find the user group attached to the invite
+      @new_user.albums.push(org) #add this user to the new user group as a member
+    end
   end
 
 private
 
-  # def album_params
-  #   params.require(:user).permit(:invitation_token)
-  # end
+  def user_params
+    params.require(:user).permit(:token, :email, :password)
+  end
   # GET /resource/edit
   # def edit
   #   super
