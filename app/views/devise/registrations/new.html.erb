@@ -15,6 +15,9 @@
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
+    <% if params[:invitation_token] != nil  %>
+      <%= f.hidden_field :invitation_token, value: params[:invitation_token]%>
+    <% end %>
   </div>
 
   <div class="form-actions">

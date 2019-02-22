@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'albums/edit'
   get 'albums/update'
   get 'albums/destroy'
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'users/registrations' }
   root to: 'albums#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :albums do
