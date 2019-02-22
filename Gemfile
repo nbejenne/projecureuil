@@ -22,6 +22,8 @@ gem 'carrierwave', '~> 1.2'
 
 gem 'figaro'
 
+gem 'devise_invitable', '~> 1.7.5'
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'

@@ -72,6 +72,9 @@ GEM
       railties (>= 4.1.0, < 6.0)
       responders
       warden (~> 1.2.3)
+    devise_invitable (1.7.5)
+      actionmailer (>= 4.1.0)
+      devise (>= 4.0.0)
     domain_name (0.5.20180417)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.6.0)
@@ -228,6 +231,7 @@ DEPENDENCIES
   carrierwave (~> 1.2)
   cloudinary
   devise
+  devise_invitable (~> 1.7.5)
   dotenv-rails
   figaro
   font-awesome-sass (~> 5.5.0)
