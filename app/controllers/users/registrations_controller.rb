@@ -16,7 +16,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @token = params[:user][:invitation_token]
 
     if @token != nil
-      binding.pry
       org =  Invitation.find_by_token(@token).album #find the user group attached to the invite
       @new_user.albums.push(org) #add this user to the new user group as a member
     end

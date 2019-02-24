@@ -12,4 +12,11 @@ class InvitationMailer < ApplicationMailer
 
     mail to: @invitation_email.email, subject: "invitation"
   end
+
+  def existing_user_invitation(invitation)
+    @invitation = invitation
+    @greeting = "Hi"
+
+    mail to: @invitation.email, subject: "invitation"
+  end
 end

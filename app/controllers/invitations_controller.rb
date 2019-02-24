@@ -18,7 +18,13 @@ class InvitationsController < ApplicationController
     @invitation.sender_id = current_user.id
 
     if @invitation.save!
-      InvitationMailer.invitation(@invitation, new_user_registration_url(:invitation_token => @invitation.token)).deliver
+      if @invitation.recipient != nil
+
+        InvitationMailer.existing_user_invitation(@invitation).deliver
+        @invitation.recipient.albums.push(@invitation.album)
+      else
+        InvitationMailer.invitation(@invitation, new_user_registration_url(:invitation_token => @invitation.token)).deliver
+      end
     else
       render 'invitations/new'
     end
