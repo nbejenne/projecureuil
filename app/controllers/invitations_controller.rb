@@ -3,7 +3,6 @@ class InvitationsController < ApplicationController
   def index
     @album = Album.find(params[:album_id])
     @invitations = Invitation.all
-
   end
 
   def new

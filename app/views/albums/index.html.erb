@@ -1,11 +1,18 @@
 
-<div class="container container-border">
-  <h1>Albums</h1>
+<div class="container albums-index-title">
+  <h1>Vos albums</h1>
     <div class="row albums-container">
       <% @albums.each do |album| %>
         <div class="col-xs-12 col-lg-4 text-center">
           <div class="album-card-container" style="background-image: url('http://www.promenades-en-mer.org/photo/produit/7/excursions_ajaccio___porticcio_coucher_de_soleil_aux_iles_sanguinaires_decouvertes_naturelles_balades_en_mer_6320160729100558.jpg')">
-            <%=link_to "#{album.name}", album_path(album)%>
+            <%=link_to "#{album.name}", album_path(album), class: "album-title"%>
+            <div class="memberships-number">
+              <%= album.memberships.size %>
+              <%= link_to "<i class='fas fa-user'></i>".html_safe, new_album_invitation_path(@album)%>
+            </div>
+             <div class="pictures-number">
+              <%= album.pictures.count %>
+            </div>
           </div>
         </div>
       <%end%>
@@ -14,7 +21,7 @@
 
 
 <div class="text-center">
-  <div class="btn btn-primary">
+  <div class="btn btn-primary btn-projecureuil">
     <%= link_to 'Créer un album', new_album_path %>
   </div>
 </div>
