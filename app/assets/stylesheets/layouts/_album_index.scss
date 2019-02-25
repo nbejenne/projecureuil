@@ -2,26 +2,23 @@
   text-decoration: none;
   background-color: white;
   border-radius: 5px;
+  margin: 7%;
 }
 
-.album-card-container {
-  padding: 10px;
-  margin: 10px;
-  border: 2px solid black;
-  display: inline-flex;
-  width: 40vh;
-  height: 15vh;
+.btn-projecureuil:hover {
+  a {
+    text-decoration: none;
+  }
+  text-decoration: none;
+  background-color: white;
   border-radius: 5px;
+  margin: 7%;
 }
+
+
 
 .albums-index-title {
   color: $orange;
   text-align: center;
 }
 
-.album-title {
-  width: 100%;
-  text-decoration: none;
-  color: white;
-  text-align: center;
-}

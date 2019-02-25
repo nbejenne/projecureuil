@@ -1,8 +1,42 @@
-.memberships-number {
-  color: red;
+.album-card-container {
+  margin: 4% 0%;
 }
 
-.pictures-number {
-  color: blue;
+.album-card-wrapper {
+  background-color: #eae8e8;
+  // margin: 1%;
+}
 
+.album-card-title {
+  width: 100%;
+  height: auto;
+  min-height: 5vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.album-title {
+  color: black;
+  text-decoration: none;
+}
+
+.album-title:hover {
+  color: black;
+  text-decoration: none;
+}
+
+.album-cover-picture {
+  width: 100%;
+  height: 25vh;
+  background-size: 100%;
+}
+
+.album-card-icons {
+  width: 100%;
+  height: 5vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: black;
 }
