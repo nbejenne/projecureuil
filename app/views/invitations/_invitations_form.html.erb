@@ -1,0 +1,10 @@
+<div class="invitations-form">
+  <%= simple_form_for [@album, @invitation], remote: true do |f| %>
+    <%= f.input :email, label: "Email" %>
+    <%= f.hidden_field :album_id, value: @invitation.album_id%>
+    <%= f.button :submit, class: "btn btn-primary btn-projecureuil" %>
+  <% end %>
+
+
+  <span><%= link_to "Retour à l'album", (@album), class: "btn btn-primary btn-projecureuil" %></span>
+ </div>

@@ -1,6 +1,7 @@
-<h1>Albums#new</h1>
-<%= simple_form_for @album do |f| %>
-  <%= f.input :name, label: "Titre de l'album" %>
-  <%= f.button :submit %>
-<% end %>
-<p>Find me in app/views/albums/new.html.erb</p>
+<div class="container">
+  <h1>Nom de l'album :</h1>
+  <%= simple_form_for @album do |f| %>
+    <%= f.input :name, label: "Titre de l'album" %>
+    <%= f.button :submit, class: "btn btn-primary btn-projecureuil" %>
+  <% end %>
+</div>

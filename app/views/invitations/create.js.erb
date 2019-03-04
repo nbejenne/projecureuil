@@ -1,0 +1,4 @@
+
+newInvitation = "<%= j render 'invitation', invitation: @invitation  %>"
+document.getElementById('invitations').insertAdjacentHTML('beforeend', newInvitation);
+document.getElementById('invitation_email').value = '';

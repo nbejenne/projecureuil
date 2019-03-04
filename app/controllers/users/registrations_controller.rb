@@ -19,6 +19,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       org =  Invitation.find_by_token(@token).album #find the user group attached to the invite
       @new_user.albums.push(org) #add this user to the new user group as a member
     end
+    redirect_to root_path
   end
 
 private

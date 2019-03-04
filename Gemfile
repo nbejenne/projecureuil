@@ -22,6 +22,8 @@ gem 'carrierwave', '~> 1.2'
 
 gem 'figaro'
 
+gem "cocoon"
+
 gem "letter_opener", group: :development
 
 

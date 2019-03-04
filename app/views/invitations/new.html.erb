@@ -1,8 +1,12 @@
 <div class="container">
+  <div class="invitations-container" id="invitations">
+    <% @invitations.each do |invitation| %>
+      <%= render "invitation", invitation: invitation  %>
+    <% end %>
+  </div>
 
-  <%= simple_form_for [@album, @invitation] do |f| %>
-    <%= f.input :email, label: "Email" %>
-    <%= f.hidden_field :album_id, value: @invitation.album_id%>
-    <%= f.button :submit, class: "btn btn-primary btn-projecureuil" %>
-  <% end %>
+  <h1> Ajouter des Ecureuils :</h1>
+
+  <%= render 'invitations_form' %>
+
 </div>

@@ -1,0 +1,12 @@
+<div class="invitation-block">
+  <div class="invitation-email">
+    <%= invitation.email %>
+  </div>
+  <div class="invitation-acceptation">
+      <% if invitation.accepted_at == nil %>
+        <%= "<i class='fas fa-envelope'></i>".html_safe %>
+      <% else %>
+        <%= "<i class='fas fa-check-square'></i>".html_safe  %>
+      <% end %>
+  </div>
+</div>
