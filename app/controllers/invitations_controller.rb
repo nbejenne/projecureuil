@@ -21,8 +21,10 @@ class InvitationsController < ApplicationController
 
         InvitationMailer.existing_user_invitation(@invitation).deliver
         @invitation.recipient.albums.push(@invitation.album)
+        redirect_to album_invitations_path(@album)
       else
         InvitationMailer.invitation(@invitation, new_user_registration_url(:invitation_token => @invitation.token)).deliver
+        redirect_to album_invitations_path(@album)
       end
     else
       render 'invitations/new'

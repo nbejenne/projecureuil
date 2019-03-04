@@ -37,7 +37,7 @@ class AlbumsController < ApplicationController
   private
 
   def album_params
-    params.require(:album).permit(:name)
+    params.require(:album).permit(:name, invitations_attributes: [:id, :email, :invitation_token, :album_id, :_destroy])
   end
   # def set_admin
   #   album_admin = []

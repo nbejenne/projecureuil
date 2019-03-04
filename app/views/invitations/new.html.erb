@@ -1,9 +1,8 @@
 <div class="container">
-Invitation
 
   <%= simple_form_for [@album, @invitation] do |f| %>
     <%= f.input :email, label: "Email" %>
     <%= f.hidden_field :album_id, value: @invitation.album_id%>
-    <%= f.button :submit %>
+    <%= f.button :submit, class: "btn btn-primary btn-projecureuil" %>
   <% end %>
 </div>

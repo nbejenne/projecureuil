@@ -1,4 +1,21 @@
-<% @invitations.each do |invitation| %>
-  <%= invitation.email %>
-  <%= invitation.accepted_at %>
-<% end %>
+<div class="container">
+  <div class="album-name-invitation text-center">
+    <%= @album.name %>:
+  </div>
+  <div class="invitations-container">
+    <% @invitations.each do |invitation| %>
+      <div class="invitation-block">
+        <div class="invitation-email">
+          <%= invitation.email %>
+        </div>
+        <div class="invitation-acceptation">
+            <% if invitation.accepted_at == nil %>
+              <%= "<i class='fas fa-envelope'></i>".html_safe %>
+            <% else %>
+              <%= "<i class='fas fa-check-square'></i>".html_safe  %>
+            <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
